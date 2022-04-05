@@ -3,12 +3,12 @@
 
 
 <b>Problem Statement 12</b>
-Given a text file, find if any URL is present in the text file or not, if present extract first occurrence
-Example: Given input my_text_file.txt contains the text "Visit my site https://bytescare.com" then the output must be "Occurrence Found: 1 First Occurrence: https://bytescare.com"
-Input: Location of the text file
-Output: Number of URL occurrences and First Occurrence
-Partial Acceptable Solution: If can only output Occurrence found
-Complete solution: If output occurrence found and the First Occurrence
+/Given a text file, find if any URL is present in the text file or not, if present extract first occurrence
+/Example: Given input my_text_file.txt contains the text "Visit my site https://bytescare.com" then the output must be "Occurrence Found: 1 First /Occurrence: https://bytescare.com"
+/Input: Location of the text file
+/Output: Number of URL occurrences and First Occurrence
+/Partial Acceptable Solution: If can only output Occurrence found
+/Complete solution: If output occurrence found and the First Occurrence
 
 
 <b>Run this</b>
@@ -55,13 +55,13 @@ first occurence in line 386 at word 2
 
 
 <b>Problem Statement 5</b>
-Given a single domain and a list of random domain names, find which are the closest match in the list,
-Example: Given input domain:google.com and domain list: [thegoogle.com, good.go, google.co.in, bing.com] will closely matches with thegoogle.com, good.go, google.co.in but not bing.com. Example google .com matches 100% with google.com
+/Given a single domain and a list of random domain names, find which are the closest match in the list,
+/Example: Given input domain:google.com and domain list: [thegoogle.com, good.go, google.co.in, bing.com] will closely matches with thegoogle.com, good.go, google.co.in but not bing.com. Example google .com matches 100% with google.com
 
-Input: domain and list of the domain with which you will match the  domain
-Output: Floating Point/Decimal or Percentage value of Single Domain Matches with the other domains within the domain list.
-Partial Acceptable Solution: None (If its a match or not is not acceptable)
-Complete solution: Giving output in floating-point/decimals as a prediction from  0-1 or 0%-100% with each domain in the domain list.
+/Input: domain and list of the domain with which you will match the  domain
+/Output: Floating Point/Decimal or Percentage value of Single Domain Matches with the other domains within the domain list.
+/Partial Acceptable Solution: None (If its a match or not is not acceptable)
+/Complete solution: Giving output in floating-point/decimals as a prediction from  0-1 or 0%-100% with each domain in the domain list.
 
 
 ```
