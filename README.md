@@ -104,3 +104,10 @@ good.go = 0.5882352941176471
 google.co.in = 0.8181818181818182
 bing.com = 0.5555555555555556
 ```
+
+Feel Free to email me one of given in my resume
+
+
+Thanks & Regard
+Team Naxap
+Team Bytes Care
