@@ -109,5 +109,7 @@ Feel Free to email me one of given in my resume
 
 
 Thanks & Regard
+
 Team Naxap
+
 Team Bytes Care
