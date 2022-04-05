@@ -2,10 +2,11 @@
 
 1. Download this and extract zip
 2. Give complete path of `my_text_file.txt`
- ``` path = "path_to_file/my_text_file.txt"
+ ``` 
+path = "path_to_file/my_text_file.txt"
 search_string = "https://bytescare.com"
 ```
-3. python3 12.py
+3. `python3  12.py`
 
 <b>Problem Statement 12</b>
 Given a text file, find if any URL is present in the text file or not, if present extract first occurrence
@@ -81,7 +82,7 @@ Partial Acceptable Solution: None (If its a match or not is not acceptable)
 Complete solution: Giving output in floating-point/decimals as a prediction from  0-1 or 0%-100% with each domain in the domain list.
 
 ## Run this
-Step 1 : python3 5.py
+Step 1 : `python3  5.py`
 ```
 from difflib import SequenceMatcher
 
