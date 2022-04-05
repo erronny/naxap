@@ -1,0 +1,587 @@
+Python Examples
+Basics Strings Lists Dictionary Files sqlite3 OpenCV Pillow Pandas Numpy PyMongo
+Python List Operations
+Python – Create an Empty List
+Python – Access List Items
+Python – List Length
+Python – Add Item to List
+Python – Remove an Item from List
+Python – Remove all Occurrences of an Item from List
+Python – Loop through List Items
+Python – Count occurrences of items in List with specific value
+Python – Append List to another List
+Python – Find Index of Item in List
+Python – Insert Item at Specific Position in List
+Python – Remove Item at Specific Index from List
+Python – Reverse List
+Python – Sort List
+Python – Example to Find the Largest Number in List
+Python – Example to Find the Smallest Number in List
+Python – Get Index or Position of Item in List
+Contents
+Introduction
+Example 1: Find Index of item in List
+Example 2: Find Index of Item in List – start, end
+Example 3: Find Index of Item – Item has multiple occurrences in List
+Example 4: Find Index of Item in List – Item not present
+Summary
+
+
+
+Python – Find Index or Position of Element in a List
+To find index of the first occurrence of an element in a given Python List, you can use index() method of List class with the element passed as argument.
+index = mylist.index(element)
+The index() method returns an integer that represents the index of first match of specified element in the List.
+You can also provide start and end positions of the List, where the search has to happen in the list.
+Following is the syntax of index() function with start and end positions.
+Stack Overflow
+About
+Products
+For Teams
+Search…
+Join Stack Overflow to find the best answer to your technical question, help others answer theirs.
+
+Home
+PUBLIC
+Questions
+Tags
+Users
+Companies
+COLLECTIVES
+Explore Collectives
+TEAMS
+Stack Overflow for Teams – Collaborate and share knowledge with a private group.
+How do I print the content of a .txt file in Python?
+Asked 8 years, 7 months ago
+Modified 11 months ago
+Viewed 171k times
+
+43
+
+
+13
+I'm very new to programming (obviously) and really advanced computer stuff in general. I've only have basic computer knowledge, so I decided I wanted to learn more. Thus I'm teaching myself (through videos and ebooks) how to program.
+
+Anyways, I'm working on a piece of code that will open a file, print out the contents on the screen, ask you if you want to edit/delete/etc the contents, do it, and then re-print out the results and ask you for confirmation to save.
+
+I'm stuck at the printing the contents of the file. I don't know what command to use to do this. I've tried typing in several commands previously but here is the latest I've tried and no the code isn't complete:
+
+from sys import argv
+
+script, filename = argv
+print "Who are you?"
+name = raw_input()
+
+print "What file are you looking for today?"
+file = raw_input()
+
+print (file)
+
+print "Ok then, here's the file you wanted."
+
+print "Would you like to delete the contents? Yes or No?"
+I'm trying to write these practice codes to include as much as I've learned thus far. Also I'm working on Ubuntu 13.04 and Python 2.7.4 if that makes any difference. Thanks for any help thus far :)
+
+python
+ubuntu
+Share
+Improve this question
+Follow
+edited Aug 15, 2013 at 15:48
+user2555451
+asked Aug 15, 2013 at 15:44
+user avatar
+Courtney
+46111 gold badge55 silver badges88 bronze badges
+Add a comment
+10 Answers
+Sorted by:
+
+Highest score (default)
+
+71
+
+Opening a file in python for reading is easy:
+
+f = open('example.txt', 'r')
+To get everything in the file, just use read()
+
+file_contents = f.read()
+And to print the contents, just do:
+
+print (file_contents)
+Don't forget to close the file when you're done.
+
+f.close()
+Share
+Improve this answer
+Follow
+edited Aug 15, 2013 at 16:09
+user avatar
+Kara
+5,9651616 gold badges4949 silver badges5656 bronze badges
+answered Aug 15, 2013 at 15:50
+user avatar
+Greg
+72655 silver badges22 bronze badges
+1
+You should use the with clause, as others have mentioned in solutions below, as the context manager will take care of closing the file. –
+pcm
+ Dec 27, 2015 at 20:19
+Add a comment
+
+44
+
+Just do this:
+
+>>> with open("path/to/file") as f: # The with keyword automatically closes the file when you are done
+...     print f.read()
+This will print the file in the terminal.
+
+Share
+Improve this answer
+Follow
+answered Aug 15, 2013 at 15:46
+user2555451
+Because it is more Pythonic ;-) –
+Mawg says reinstate Monica
+ Mar 17, 2015 at 14:43
+3
+It seems in newer versions of Python it should be print(f.read()) –
+LightCC
+ Jan 25, 2020 at 4:22
+Add a comment
+
+4
+
+with open("filename.txt", "w+") as file:
+  for line in file:
+    print line
+This with statement automatically opens and closes it for you and you can iterate over the lines of the file with a simple for loop
+
+Share
+Improve this answer
+Follow
+answered Aug 15, 2013 at 15:46
+user avatar
+Stephan
+13.9k77 gold badges3232 silver badges6060 bronze badges
+Add a comment
+
+2
+
+to input a file:
+
+fin = open(filename) #filename should be a string type: e.g filename = 'file.txt'
+to output this file you can do:
+
+for element in fin:
+    print element
+if the elements are a string you'd better add this before print:
+
+element = element.strip()
+strip() remove notations like this: /n
+
+Share
+Improve this answer
+Follow
+edited Aug 15, 2013 at 16:10
+user avatar
+Jon Clements♦
+131k3131 gold badges232232 silver badges268268 bronze badges
+answered Aug 15, 2013 at 15:52
+user avatar
+SamuraiT
+94233 gold badges1111 silver badges2020 bronze badges
+after opening a file, you can print everything by this as well: print fin –
+SamuraiT
+ Aug 15, 2013 at 15:54
+I've formatted your post slightly - you might also want to change /n to be \n... –
+Jon Clements
+♦
+ Aug 15, 2013 at 16:12
+Add a comment
+
+2
+
+print ''.join(file('example.txt'))
+
+Share
+Improve this answer
+Follow
+answered Feb 17, 2017 at 7:36
+user avatar
+Ninja420
+3,05233 gold badges2121 silver badges3131 bronze badges
+Add a comment
+
+2
+
+How to read and print the content of a txt file
+Assume you got a file called file.txt that you want to read in a program and the content is this:
+
+this is the content of the file
+with open you can read it and
+then with a loop you can print it
+on the screen. Using enconding='utf-8'
+you avoid some strange convertions of
+caracters. With strip(), you avoid printing
+an empty line between each (not empty) line
+You can read this content: write the following script in notepad:
+
+with open("file.txt", "r", encoding="utf-8") as file:
+    for line in file:
+        print(line.strip())
+save it as readfile.py for example, in the same folder of the txt file.
+
+Then you run it (shift + right click of the mouse and select the prompt from the contextual menu) writing in the prompt:
+
+C:\examples> python readfile.py
+
+You should get this. Play attention to the word, they have to be written just as you see them and to the indentation. It is important in python. Use always the same indentation in each file (4 spaces are good).
+
+output
+
+this is the content of the file
+with open you can read it and
+then with a loop you can print it
+on the screen. Using enconding='utf-8'
+you avoid some strange convertions of
+caracters. With strip(), you avoid printing
+an empty line between each (not empty) line
+Share
+Improve this answer
+Follow
+answered Dec 11, 2017 at 17:30
+user avatar
+PythonProgrammi
+20k33 gold badges3636 silver badges3434 bronze badges
+Add a comment
+
+1
+
+This will give you the contents of a file separated, line-by-line in a list:
+
+with open('xyz.txt') as f_obj:
+    f_obj.readlines()
+Share
+Improve this answer
+Follow
+answered Aug 15, 2013 at 15:46
+user avatar
+Noel Evans
+7,33777 gold badges4747 silver badges5757 bronze badges
+Add a comment
+
+1
+
+It's pretty simple
+
+#Opening file
+f= open('sample.txt')
+#reading everything in file
+r=f.read()
+#reading at particular index
+r=f.read(1)
+#print
+print(r)
+Presenting snapshot from my visual studio IDE.
+
+enter image description here
+
+Share
+Improve this answer
+Follow
+answered Apr 20, 2019 at 10:09
+user avatar
+Manjeet
+7871414 silver badges2222 bronze badges
+Add a comment
+
+1
+
+single line to read/print contents of a file
+
+reading file : example.txt
+
+ print(open('example.txt', 'r').read())
+
+output:
+
+u r reading the contents of example.txt file
+
+Share
+Improve this answer
+Follow
+edited May 2, 2021 at 20:24
+answered May 2, 2021 at 20:19
+user avatar
+ANDuser
+4955 bronze badges
+Add a comment
+
+0
+
+Reading and printing the content of a text file (.txt) in Python3
+
+Consider this as the content of text file with the name world.txt:
+
+Hello World! This is an example of Content of the Text file we are about to read and print
+using python!
+First we will open this file by doing this:
+
+file= open("world.txt", 'r')
+Now we will get the content of file in a variable using .read() like this:
+
+content_of_file= file.read()
+Finally we will just print the content_of_file variable using print command.
+
+print(content_of_file)
+Output:
+
+Hello World! This is an example of Content of the Text file we are about to read and print using python!
+
+Share
+Improve this answer
+Follow
+answered Oct 15, 2020 at 11:37
+user11936470
+Add a comment
+Your Answer
+Sign up or log in
+Post as a guest
+Name
+Email
+Required, but never shown
+
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged python ubuntu or ask your own question.
+The Overflow Blog
+Comparing Go vs. C in embedded applications
+Time to get on trend
+Featured on Meta
+The Future of our Jobs Ad slots
+Ask Wizard for New Users Feature Test is now Live
+Calling up moderators from the 2021 election - welcome, Dharman & Ryan M!
+Staging Ground Workflow: Question Details & Actions
+Linked
+-2
+How do I read and display a file in python
+0
+Opening a file from list position
+0
+How to read list of ip address from a text file and print it out
+-2
+Print all files in the sub-folders of a folder
+0
+Display contents of a file on django website
+Related
+6576
+How do I check whether a file exists without exceptions?
+3262
+How to copy files?
+5140
+How can I safely create a nested directory?
+2760 https://bytescare.com
+How do I print colored text to the terminal in Python?
+3511
+How do I get the current time?
+2242
+How to print without a newline or space
+3251
+How do I concatenate two lists in Python?
+1619
+How to print to stderr in Python?
+2872
+How do I delete a file or folder in Python?
+Hot Network Questions
+A question regarding pressure in a moving liquid
+What's the opposite of crowded, when speaking of roads?
+How to remove a part of axis?
+Knapsack - How to optimize bonuses for each pair of items
+How do Imperial prison cells work?
+Downsides to using test strips from different packages of photo paper?
+What is the motivation behind these definitions?
+Yogurt + tahini = paste?
+Get result from awk using two delimiters https://bytescare.com in a single command
+PostGIS azimuth of line segments
+What fundamental mistakes were made in my game that slowly turned in to a loss?
+Does the term "ordinary dividends" include qualified dividends?
+How acceptable (mainstream/marginal) is the discussion about replacing the human rights with the natural law and to delete human right chapters?
+What button did a pilot press that led to them being caught for falsifying experience?
+A powerful affix riddle
+Why is this noun dative?
+When showing interest about people, how is the gender inferred?
+What categories of projects outside of embedded are there for a C++ developer nowadays?
+How do Protestants interpret "Give us this day our daily bread"?
+Conway's Game of Life Object oriented implementation in Java
+Should one transcribe granular 16th https://bytescare.com information in sung melodies?
+Sum of new values
+Is there a contradiction between John 6:44 and Matthew 22:14?
+Vehicle AC works initially, but after driving for a while (hour+), the airflow drops to the point being ineffective
+ Question feed
+
+STACK OVERFLOW
+Questions
+Help
+PRODUCTS
+Teams
+Advertising
+Collectives
+Talent
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Terms of Service https://bytescare.com
+Contact Us
+Cookie Settings
+Cookie Policy
+STACK EXCHANGE NETWORK
+Technology
+Culture & recreation
+Life & arts
+Science
+Professional
+Business
+API
+Data
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+Site design / logo © 2022 Stack Exchange Inc; user https://bytescare.com contributions licensed under cc by-sa. rev 2022.4.4.41856
+
+
+
+index = mylist.index(x, [start[,end]])
+start parameter is optional. If you provide a value for start, then end is optional.
+
+We shall look into examples, where we go through each of these scenarios in detail.
+
+Python - Index or Position of Specific Element in a List
+Example 1: Find Index of item in List
+In the following example, we have taken a List with numbers. Using index() method we will find the index of item 8 in the list.
+
+Python Program
+
+mylist = [21, 5, 8, 52, 21, 87]
+item = 8
+
+#search for the item
+index = mylist.index(item)
+
+print('The index of', item, 'in the list is:', index)
+ Run
+Output
+
+The index of 8 in the list is: 2
+The element is present at 3rd position, so mylist.index() function returned 2.
+
+
+Example 2: Find Index of Item in List – start, end
+In the following example, we have taken a List with numbers. Using index() method we will find the index of item 8 in the list. Also, we shall pass start and end. index() function considers only those elements in the list starting from start index, till end position in mylist.
+
+Python Program
+
+mylist = [21, 8, 67, 52, 8, 21, 87]
+item = 8
+start=2
+end=7
+
+#search for the item
+index = mylist.index(item, start, end)
+
+print('The index of', item, 'in the list is:', index)
+ Run
+Output
+
+The index of 8 in the list is: 4
+Explanation
+
+mylist = [21, 8, 67, 52, 8, 21, 87]
+                 ----------------- only this part of the list is considered
+                         ^ index finds the element here
+          0   1   2   3  4 => 4 is returned by index()  
+Example 3: Find Index of Item – Item has multiple occurrences in List
+A Python List can contain multiple occurrences of an element. In such cases, only the index of first occurrence of specified element in the list is returned.
+
+Python Program
+
+mylist = [21, 5, 8, 52, 21, 87, 52]
+item = 52
+
+#search for the item
+index = mylist.index(item)
+
+print('The index of', item, 'in the list is:', index)
+ Run
+Output
+
+The index of 52 in the list is: 3
+The element 52 is present two times, but only the index of first occurrence is returned by index() method.
+
+Let us understand how index() method works. The function scans the list from starting. When the item matches the argument, the function returns that index. The later occurrences are ignored.
+
+Example 4: Find Index of Item in List – Item not present
+If the element that we are searching in the List is not present, you will get a ValueError with the message item is not in list.
+
+In the following program, we have taken a list and shall try to find the index of an element that is not present in the list.
+
+Python Program
+
+mylist = [21, 5, 8, 52, 21, 87, 52]
+item = 67
+
+#search for the item/element
+index = mylist.index(item)
+
+print('The index of', item, 'in the list is:', index)
+ Run
+Output
+
+Traceback (most recent call last):
+  File "example.py", line 5, in <module>
+    index = mylist.index(item)
+ValueError: 67 is not in list
+As index() can throw ValueError, use Python Try-Except while using index(). In the following example, we shall learn how to use try-except statement to handle this ValueError.
+
+Python Program
+
+mylist = [21, 5, 8, 52, 21, 87, 52]
+item = 67
+
+try:
+	#search for the item
+	index = mylist.index(item)
+	print('The index of', item, 'in the list is:', index)
+except ValueError:
+	print('item not present')
+ Run
+Output
+
+item not present
+The item, whose index we are trying to find, is not present in the list. Therefore, mylist.index(item) throws ValueError. except ValueError: block catches this Error and the corresponding block is executed.
+
+Summary
+In this Python Tutorial, we learned how to find the index of an element/item in a list, with the help of well detailed examples.
+
+
+Related Tutorials
+Python – List of Strings
+Python List of Lists
+How to Access List Items in Python?
+Python List without Last Element
+How to Sort Python List?
+How to Append List to Another List in Python? – list.extend(list)
+How to Get the list of all Python keywords?
+Python List of Dictionaries
+Python List of Functions
+Python – Check if Element is in List
+
+Sitemap Privacy Policy Terms of Use Contact Us
+
